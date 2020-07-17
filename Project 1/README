@@ -1,0 +1,6 @@
+Project 1 for CS50AI had two exercises.
+
+The first was designing an algorithm to find the 'degrees of separation' between two film actors (a la Six Degrees of Kevin Bacon).
+  For this project, you were provided helper functions in the util.py file and given instructions on how to edit the degrees.py function.
+
+The second was designing an algorithm for playing Tic-Tac-Toe.
