@@ -1,0 +1,58 @@
+Search
+
+
+AI SearchTerminology
+Agent - an entity that perceives its environment and acts upon that environmentState - the situation in which the agent finds itselfActions - choices that can be made in a state    ACTIONS(s) - returns the set of actions that can be executed in state sTransition Model - a description of what state results from performing any applicable action in any state    RESULT(s,a)  - returns the state resulting from performing action a in state sState Space - the set of all states reachable from the initial state by any sequence of actionsGoal Test - a way to determine whether a given state is a goal statePath Cost - numerical cost associated with a given pathSolution - a sequence of actions that leads from an initial state to the goal stateSearch ProblemsThey have...
+	* Initial State
+	* Actions
+	* Transition Model
+	* Goal Test
+	* Path Cost Function
+
+Data RepresentationNode - a data structure that keeps track of:
+	* a state
+	* a parent
+	* an action (to get from parent to node)
+	* a path cost (to get from initial state to node)
+
+Frontier - a data structure which contains all nodes which could be reached from the current node, represents all things which could be explored, which have not yet been exploredApproach
+	* Start with a frontier that contains the initial state
+	* Loop:
+
+		* If the frontier is empty, there is no solution
+		* Remove a node from the frontier
+		* If node contains goal state, return the solution
+		* Expand the node, add resulting nodes to the frontier
+
+Revised Approach
+	* Start with a frontier that contains the initial state and an empty explored set
+	* Loop:
+
+		* If the frontier is empty, there is no solution
+		* Remove a node from the frontier
+		* If node contains goal state, return the solution
+		* Add the node to the explored dtate
+		* Expand the node, add resulting nodes to the frontier if they aren't already in the frontier or the explored set
+
+Depth-First SearchSearch algorithms that always expand the deepest node in the frontierBreadth-First SearchSearch algorithm that always expands the shallowest node in the frontier    Queue - first-in first-out data typeUninformed SearchSearch strategy that uses no problem-specific knowledgeInformed SearchSearch strategy that uses problem-specific knowledgeGreedy Best-First SearchSearch algorithm that expands the node that is closest to the goal, as estimated by a heuristic function h(n)A* Search
+Search algorithm that expands node with lowest value of g(n) + h(n)
+    g(n) = cost to reach node
+    h(n) = estimate cost to goal
+Optimal under certain conditions
+    h(n) does not overestimate the true cost
+    h(n) is consistent 
+
+Minimax
+To help AI play games, values need to be assigned to wins and losses and given the goal state of minimizing or maximizing values
+AI calculate the value of moves recursively by looking ahead to the max value of future states possible if a move is made, they anticipate opponent moves and their own future moves
+The ensuing logic becomes. the MAX value player will take the action that produces the highest value of the minimum value of future states, the minimizing player does the opposite
+
+Alpha-Beta Pruning
+In an AI search tree, in a value maximization problem, if a branch is found to contain a node of lower value, the rest of the branch does not need to be explored
+
+Depth-Limited Minimax
+A min-maxing function will only evaluate a certain  depth of states
+
+Evaluation Function
+Functions that estimate the expected utility of the game from a given state without recursively considering future states
+
